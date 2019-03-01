@@ -1,0 +1,23 @@
+<h1> Edit Organisation </h1>
+
+<%= form_for :organisation, url: organisations_path(@organisations), method: :patch do |f| %>
+    <% if @organisation.errors.any? %>
+        <% @organisation.errors.full_messages.each do |msg| %>
+            <div class="alert alert-danger"><%= msg %></div>
+        <% end %>
+    <% end %>
+    
+    <p>
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+    </p>
+
+    <p>
+        <%= f.label :hourlyRate %><br>
+        <%= f.text_field :hourlyRate %>
+    </p>
+
+    <p> 
+        <%= f.submit({:class => 'btn btn-primary'})%>
+    </p>
+<% end %>
